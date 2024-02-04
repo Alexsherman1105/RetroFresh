@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrofresh</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Header styles */
+        header {
+            background: linear-gradient(to right, #8e44ad, #e74c3c, #3498db);
+            color: #fff;
+            width: 100%;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px; /* Adjust to your logo size */
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-family: serif;
+            margin: 0; /* Remove default margin to center */
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content styles */
+        main {
+            width: 80%;
+            margin: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hero img {
+            width: 80%; /* Adjust to your preference */
+            max-width: 600px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .featured .product {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .featured .product img {
+            width: 100%;
+        }
+
+        .featured .product h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .featured .product p {
+            margin-bottom: 1rem;
+        }
+
+        .about {
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            line-height: 1.5;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonials .testimonial {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials .testimonial blockquote {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials .testimonial cite {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Update Form styles */
+        .update-form {
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+        }
+
+        .update-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .update-form textarea {
+            width: 100%;
+            height: 150px;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .update-form input[type="file"] {
+            margin-bottom: 1rem;
+        }
+
+        .update-form button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .update-form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Updates and Reviews sections */
+        .updates-reviews {
+            display: flex;
+            justify-content: center; /* Center the children horizontally */
+            align-items: flex-start; /* Align the children at the top vertically */
+        }
+
+        .updates {
+            width: 48%;
+            text-align: center; /* Center the content inside .updates */
+        }
+
+        /* Updates and Reviews item styles */
+        .update-item,
+        .review-item {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer styles */
+        footer {
+            background: linear-gradient(to right, #8e44ad, #e74c3c, #3498db);
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .updates-reviews {
+                flex-direction: column;
+            }
+
+            .updates,
+            .reviews {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="hero.jpg" alt="Retrofresh Logo">
+            <h1>Retrofresh</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="updates.html">Updates</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to Retrofresh!</h2>
+            <p>Your one-stop shop for all things retro.</p>
+            <a href="#updates">View Updates</a>
+        </section>
+
+        <section class="featured">
+            <!-- Featured Updates section goes here -->
+        </section>
+
+        <section class="about">
+            <!-- About section goes here -->
+        </section>
+
+        <section class="testimonials">
+            <!-- Testimonials section goes here -->
+        </section>
+
+        <!-- New button for admin -->
+        <button id="adminButton">Admin</button>
+
+        <!-- Update Form section -->
+        <section id="updates" class="update-form" style="display: none;">
+            <h3>Share Your Update</h3>
+            <form id="updateForm" action="#" method="post">
+                <label for="updateText">Your Update:</label>
+                <textarea id="updateText" name="updateText" required></textarea>
+
+                <label for="photos">Upload Photos:</label>
+                <input type="file" id="photos" name="photos" accept="image/*">
+
+                <!-- Rating section removed as requested -->
+
+                <button type="button" onclick="submitUpdate()">Submit Update</button>
+            </form>
+        </section>
+
+        <!-- Updates and Reviews sections -->
+        <section class="updates-reviews">
+            <!-- Updates section -->
+            <div class="updates">
+                <h3>Latest Updates</h3>
+                <!-- Update items go here -->
+                <div class="update-item">
+                    <p>Update content goes here.</p>
+                    <!-- Include photos as needed -->
+                </div>
+            </div>
+
+            <!-- Reviews section (removed as requested) -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Retrofresh</p>
+        <p>Phone: +1 (330) 224-3390</p>
+        <P>Email: Bigsturm@sssnet.com</P>
+        <p>Address: 3250 Lincoln Way E, Massillon, OH 44646</p>
+        <a href="https://www.facebook.com/RetroFreshMassillon">Social Media</a>
+        <br>
+        <small>
+            <p>This site is Designed and Maintained by Alex Sherman</p>
+        </small>
+    </footer>
+
+    <script>
+        function submitUpdate() {
+            // You can add your update submission logic here
+            alert('Update submitted successfully!');
+            // Reset form after submission
+            document.getElementById('updateForm').reset();
+        }
+
+        // Add event listener for the Admin button
+        document.getElementById('adminButton').addEventListener('click', function () {
+            // Ask for password
+            var password = prompt('Please enter the password:');
+
+            // Check if the password is correct
+            if (password === '1234') {
+                // Password correct, hide the button and show the update form
+                document.getElementById('adminButton').style.display = 'none';
+                document.getElementById('updates').style.display = 'block';
+            } else {
+                // Password incorrect
+                alert('Incorrect password. Access denied.');
+            }
+        });
+    </script>
+</body>
+
+</html>
